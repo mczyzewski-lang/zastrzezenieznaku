@@ -5,9 +5,9 @@ Statyczny prototyp (jeden plik `index.html`, bez serwera i bez build-a). Wystarc
 Układ i lejek sprzedażowy wzorowane na AirHelp: pytanie w hero → kreator krok po kroku → panel klienta.
 
 ## Widoki (routing po `#`)
-- `index.html#/` – strona główna (hero z pytaniem „Co chcesz zastrzec?”, opinie, 4 kroki + kalkulator opłat, liczby, baner „Jedna opłata. Zero ryzyka.”, korzyści, klienci, FAQ, CTA, pakiet korzyści, newsletter/poradnik, stopka, czat)
-- `index.html#/weryfikacja` – kreator: znak → klasy → obszar → dane → wynik weryfikacji + wybór pakietu → pełnomocnictwo (podpis) → gotowe
-- `index.html#/panel` – panel klienta: status sprawy (oś czasu), zadania do zrobienia, wiadomości z prawnikiem, dokumenty, płatności, dane
+- `index.html` – strona główna (hero z pytaniem „Co chcesz zastrzec?”, opinie, 4 kroki + kalkulator opłat, liczby, baner „Jedna opłata. Zero ryzyka.”, korzyści, klienci, FAQ, CTA, pakiet korzyści, newsletter/poradnik, stopka, czat)
+- `index.html#weryfikacja` – kreator: znak → klasy → obszar → dane → wynik weryfikacji + wybór pakietu → pełnomocnictwo (podpis) → gotowe
+- `index.html#panel` – panel klienta: status sprawy (oś czasu), zadania do zrobienia, wiadomości z prawnikiem, dokumenty, płatności, dane
 
 ## Do uzupełnienia przed wdrożeniem
 - Wynik weryfikacji jest **symulowany** (`runScan`, lista `BLOCKED`) – podpiąć API/proces prawnika.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ochrona Logo – zastrzeż znak towarowy</title>
+<title>Ochrona Logo</title>
 <meta name="description" content="Bezpłatna wstępna weryfikacja i zastrzeżenie znaku towarowego w Polsce, UE i na świecie.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+html{color-scheme:light}
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button,input,select,textarea{font:inherit}
@@ -41,7 +42,7 @@ h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em}
 svg.i{width:20px;height:20px;flex:none}
 
 /* ---------- header ---------- */
-header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;color:var(--navy);letter-spacing:-.02em}
 .logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--indigo));display:grid;place-items:center;color:var(--gold);font-size:16px;font-weight:800}
@@ -392,17 +393,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
 <div id="view-home">
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
+    <a class="logo" href="#start"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
     <nav class="main">
       <a href="#jak">Jak to działa</a>
       <a href="#koszt">Ile to kosztuje</a>
       <a href="#dlaczego">Dlaczego warto</a>
       <a href="#faq">FAQ</a>
-      <a href="#/panel">Panel klienta</a>
+      <a href="#panel">Panel klienta</a>
     </nav>
     <div class="top-right">
       <a class="hide-sm" href="tel:+48000000000" style="font-size:14px;text-decoration:none;color:var(--muted)">☎ +48 000 000 000</a>
-      <a class="btn btn-ghost" href="#/panel">Zaloguj</a>
+      <a class="btn btn-ghost" href="#panel">Zaloguj</a>
     </div>
   </div>
 </header>
@@ -470,7 +471,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
       <li><div><b>Złożenie wniosku i monitoring</b><span>Składamy zgłoszenie i reagujemy na pisma urzędu oraz sprzeciwy.</span></div></li>
       <li><div><b>Świadectwo ochronne</b><span>Twój znak jest chroniony przez 10 lat, z możliwością przedłużenia.</span></div></li>
     </ol>
-    <a class="btn btn-gold" href="#/weryfikacja">Rozpocznij bezpłatną weryfikację <svg class="i"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-gold" href="#weryfikacja">Rozpocznij bezpłatną weryfikację <svg class="i"><use href="#i-arrow"/></svg></a>
   </div>
   <div class="panel-light" id="koszt">
     <h2>Ile kosztuje ochrona?</h2>
@@ -505,7 +506,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
   <p>Cenę znasz przed podpisaniem umowy – bez dopłat za pisma i korespondencję z urzędem.</p>
   <p>Cały proces online – bez wizyt w kancelarii i urzędzie.</p>
   <div class="cta">
-    <a class="btn btn-white" href="#/weryfikacja">Sprawdź swój znak za darmo</a>
+    <a class="btn btn-white" href="#weryfikacja">Sprawdź swój znak za darmo</a>
     <a class="btn" style="color:#fff;border:1.5px solid #ffffff55" href="#koszt">Zobacz koszty</a>
   </div>
 </div></section>
@@ -555,7 +556,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
   <div class="cta-strip">
     <h2>Większość firm nie sprawdza, czy ich marka jest chroniona.<br>Ci, którzy to robią – śpią spokojnie.</h2>
     <p>Weryfikacja jest bezpłatna. Decyzję o zgłoszeniu podejmujesz po poznaniu wyniku.</p>
-    <a class="btn btn-gold" href="#/weryfikacja" style="margin-top:12px">Sprawdź, czy możesz zastrzec znak</a>
+    <a class="btn btn-gold" href="#weryfikacja" style="margin-top:12px">Sprawdź, czy możesz zastrzec znak</a>
     <div class="avatars"><span style="background:#d4ad52">AK</span><span style="background:#1fbf6a">MW</span><span style="background:#2f6bff;color:#fff">KP</span><span style="background:#f3d98b">TL</span></div>
     <p style="font-size:13px;margin-top:8px">Ponad 21 000 klientów zaufało ochronalogo.pl</p>
   </div>
@@ -565,8 +566,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
 <section style="padding-top:0"><div class="wrap">
   <div class="center" style="margin-bottom:24px"><div class="eyebrow">W pakiecie</div><h2>Twój dodatkowy pakiet korzyści</h2></div>
   <div class="extras">
-    <div class="extra"><div class="medal">GRATIS</div><h3>Monitoring znaku</h3><p>Powiadomimy Cię, gdy ktoś spróbuje zgłosić podobny znak – i pomożemy złożyć sprzeciw.</p><a class="btn btn-ghost" href="#/weryfikacja">Dowiedz się więcej</a></div>
-    <div class="extra"><div class="medal">PRAWNIK<br>24 h</div><h3>Konsultacja z prawnikiem</h3><p>Opiekun sprawy odpowiada na pytania w panelu klienta – bez dodatkowych opłat.</p><a class="btn btn-ghost" href="#/panel">Zobacz panel klienta</a></div>
+    <div class="extra"><div class="medal">GRATIS</div><h3>Monitoring znaku</h3><p>Powiadomimy Cię, gdy ktoś spróbuje zgłosić podobny znak – i pomożemy złożyć sprzeciw.</p><a class="btn btn-ghost" href="#weryfikacja">Dowiedz się więcej</a></div>
+    <div class="extra"><div class="medal">PRAWNIK<br>24 h</div><h3>Konsultacja z prawnikiem</h3><p>Opiekun sprawy odpowiada na pytania w panelu klienta – bez dodatkowych opłat.</p><a class="btn btn-ghost" href="#panel">Zobacz panel klienta</a></div>
   </div>
 </div></section>
 
@@ -585,11 +586,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
 
 <footer><div class="wrap">
   <div class="f-cols">
-    <div><h4>Znak towarowy</h4><a href="#/weryfikacja">Bezpłatna weryfikacja</a><a href="#">Rejestracja w Polsce</a><a href="#">Rejestracja w UE</a><a href="#">Rejestracja międzynarodowa</a><a href="#">Przedłużenie ochrony</a></div>
+    <div><h4>Znak towarowy</h4><a href="#weryfikacja">Bezpłatna weryfikacja</a><a href="#">Rejestracja w Polsce</a><a href="#">Rejestracja w UE</a><a href="#">Rejestracja międzynarodowa</a><a href="#">Przedłużenie ochrony</a></div>
     <div><h4>Usługi</h4><a href="#">Monitoring znaku</a><a href="#">Sprzeciw wobec zgłoszenia</a><a href="#">Ochrona domeny</a><a href="#">Wzory przemysłowe</a></div>
     <div><h4>Wiedza</h4><a href="#faq">FAQ</a><a href="#">Klasy nicejskie</a><a href="#">Blog</a><a href="#">Poradnik</a></div>
     <div><h4>Firma</h4><a href="#">O nas</a><a href="#">Zespół prawników</a><a href="#">Opinie</a><a href="#">Kariera</a></div>
-    <div><h4>Kontakt</h4><a href="tel:+48000000000">+48 000 000 000</a><a href="mailto:kontakt@ochronalogo.pl">kontakt@ochronalogo.pl</a><a href="#/panel">Panel klienta</a></div>
+    <div><h4>Kontakt</h4><a href="tel:+48000000000">+48 000 000 000</a><a href="mailto:kontakt@ochronalogo.pl">kontakt@ochronalogo.pl</a><a href="#panel">Panel klienta</a></div>
   </div>
   <div class="f-bottom"><span>© 2026 ochronalogo.pl · Wszelkie prawa zastrzeżone</span><span><a href="#">Polityka prywatności</a> · <a href="#">Regulamin</a> · <a href="#">Cookies</a></span></div>
 </div></footer>
@@ -600,7 +601,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
      ========================================================= -->
 <div id="view-wiz" class="wiz hide">
   <div class="wiz-top"><div class="wrap">
-    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
+    <a class="logo" href="#start"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
     <span class="help"><svg class="i" style="vertical-align:-5px"><use href="#i-lock"/></svg> Bezpieczne połączenie · Pomoc: +48 000 000 000</span>
   </div></div>
   <div class="wiz-body">
@@ -631,19 +632,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
      ========================================================= -->
 <div id="view-panel" class="app hide">
   <aside class="app-side">
-    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b></span></a>
+    <a class="logo" href="#start"><span class="logo-mark">®</span><span>ochrona<b>logo</b></span></a>
     <a data-tab="sprawy" class="on"><svg class="i"><use href="#i-home"/></svg>Moje sprawy</a>
     <a data-tab="wiadomosci"><svg class="i"><use href="#i-chat"/></svg>Wiadomości<span class="badge" id="msgBadge">1</span></a>
     <a data-tab="dokumenty"><svg class="i"><use href="#i-doc"/></svg>Dokumenty</a>
     <a data-tab="platnosci"><svg class="i"><use href="#i-card"/></svg>Płatności</a>
     <a data-tab="ustawienia"><svg class="i"><use href="#i-user"/></svg>Moje dane</a>
-    <a href="#/weryfikacja"><svg class="i"><use href="#i-search"/></svg>Nowa weryfikacja</a>
+    <a href="#weryfikacja"><svg class="i"><use href="#i-search"/></svg>Nowa weryfikacja</a>
     <div class="bottom"><b style="color:#fff">Potrzebujesz pomocy?</b><br>Twój opiekun odpowiada w ciągu 24 h w zakładce Wiadomości.</div>
   </aside>
   <main class="app-main">
     <div class="app-head">
       <h1 id="panelTitle">Moje sprawy</h1>
-      <div class="me"><svg class="i" style="color:var(--muted)"><use href="#i-bell"/></svg><span class="av" style="width:36px;height:36px;font-size:13px" id="meAv">JK</span><span id="meName">Jan Kowalski</span><a href="#/" title="Wyloguj" style="color:var(--muted)"><svg class="i"><use href="#i-logout"/></svg></a></div>
+      <div class="me"><svg class="i" style="color:var(--muted)"><use href="#i-bell"/></svg><span class="av" style="width:36px;height:36px;font-size:13px" id="meAv">JK</span><span id="meName">Jan Kowalski</span><a href="#start" title="Wyloguj" style="color:var(--muted)"><svg class="i"><use href="#i-logout"/></svg></a></div>
     </div>
     <div id="panelBody"></div>
   </main>
@@ -654,7 +655,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margi
   <div class="h"><b>Zapytaj prawnika</b><br><span style="font-size:13px;color:#cfd6f0">Odpowiadamy zwykle w kilka minut</span></div>
   <div class="b">
     <div class="msg">Dzień dobry! 👋 W czym mogę pomóc? Możesz też od razu rozpocząć bezpłatną weryfikację znaku.</div>
-    <a class="btn btn-primary btn-block" href="#/weryfikacja" onclick="chatPop.classList.add('hide')">Rozpocznij weryfikację</a>
+    <a class="btn btn-primary btn-block" href="#weryfikacja" onclick="chatPop.classList.add('hide')">Rozpocznij weryfikację</a>
     <div class="composer"><input placeholder="Napisz wiadomość…"><button class="btn btn-gold" style="padding:10px 14px" onclick="toast('Wiadomość wysłana (demo)')">➤</button></div>
   </div>
 </div>
@@ -712,13 +713,13 @@ const BLOCKED = ['apple','nike','google','zara','orlen','allegro','biedronka','l
 
 /* ================= ROUTER ================= */
 function route(){
-  const h = location.hash || '#/';
+  const h = location.hash.replace('#','');
   const views = {home:$('#view-home'),wiz:$('#view-wiz'),panel:$('#view-panel')};
   Object.values(views).forEach(v=>v.classList.add('hide'));
-  if(h.startsWith('#/weryfikacja')){views.wiz.classList.remove('hide');renderWiz();window.scrollTo(0,0)}
-  else if(h.startsWith('#/panel')){views.panel.classList.remove('hide');renderPanel();window.scrollTo(0,0)}
-  else {views.home.classList.remove('hide'); if(h==='#/') window.scrollTo(0,0); else { const el=document.querySelector(h); el&&el.scrollIntoView(); }}
-  $('#chatFab').classList.toggle('hide', h.startsWith('#/panel'));
+  if(h==='weryfikacja'){views.wiz.classList.remove('hide');renderWiz();window.scrollTo(0,0)}
+  else if(h==='panel'){views.panel.classList.remove('hide');renderPanel();window.scrollTo(0,0)}
+  else {views.home.classList.remove('hide'); const el=h&&h!=='start'&&document.getElementById(h); if(el) el.scrollIntoView(); else window.scrollTo(0,0);}
+  $('#chatFab').classList.toggle('hide', h==='panel');
 }
 window.addEventListener('hashchange',route);
 
@@ -727,7 +728,7 @@ document.querySelectorAll('#heroForm .opt').forEach(o=>o.addEventListener('click
   document.querySelectorAll('#heroForm .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');S.type=o.dataset.val;
 }));
 $('#heroForm').addEventListener('submit',e=>{
-  e.preventDefault(); S.name=$('#heroName').value.trim(); wizStep=0; location.hash='#/weryfikacja';
+  e.preventDefault(); S.name=$('#heroName').value.trim(); wizStep=0; location.hash='#weryfikacja';
 });
 let calcReg='pl';
 function renderCalc(){
@@ -768,7 +769,7 @@ function renderSide(){
 }
 function nav(backOk=true,nextLabel='Dalej',nextOk=true){
   return `<div class="wiz-nav">
-    ${backOk?`<button class="btn btn-ghost" data-back><svg class="i"><use href="#i-back"/></svg>Wstecz</button>`:'<a class="btn btn-ghost" href="#/"><svg class="i"><use href="#i-back"/></svg>Strona główna</a>'}
+    ${backOk?`<button class="btn btn-ghost" data-back><svg class="i"><use href="#i-back"/></svg>Wstecz</button>`:'<a class="btn btn-ghost" href="#start"><svg class="i"><use href="#i-back"/></svg>Strona główna</a>'}
     <button class="btn btn-primary" data-next ${nextOk?'':'disabled'}>${nextLabel} <svg class="i"><use href="#i-arrow"/></svg></button>
   </div>`;
 }
@@ -837,7 +838,7 @@ function renderWiz(){
   if(wizStep===6){
     h=`<div class="done-hero"><div class="big-ok"><svg class="i" style="width:40px;height:40px"><use href="#i-check"/></svg></div>
     <h2>Gotowe! Zajmiemy się resztą.</h2><p class="muted" style="max-width:520px;margin:0 auto">Twoja sprawa została utworzona. Wszystkie kolejne kroki, dokumenty i wiadomości od prawnika znajdziesz w panelu klienta. Wysłaliśmy też potwierdzenie na <b>${esc(S.person.email)}</b>.</p>
-    <a class="btn btn-primary" href="#/panel" style="margin-top:24px">Przejdź do panelu klienta <svg class="i"><use href="#i-arrow"/></svg></a></div>`;
+    <a class="btn btn-primary" href="#panel" style="margin-top:24px">Przejdź do panelu klienta <svg class="i"><use href="#i-arrow"/></svg></a></div>`;
     $('#wizBar').style.width='100%';
   }
   m.innerHTML=h; bindWiz();
@@ -863,7 +864,7 @@ function bindWiz(){
   const fc=$('#fConsent'); if(fc) fc.onchange=()=>{S.consent=fc.checked;refreshNext(valid3())};
   const fm=$('#fMkt'); if(fm) fm.onchange=()=>S.marketing=fm.checked;
   m.querySelectorAll('[data-pkg]').forEach(p=>p.onclick=()=>{S.pkg=p.dataset.pkg;renderWiz()});
-  const lb=$('#laterBtn'); if(lb) lb.onclick=e=>{e.preventDefault();toast('Prawnik oddzwoni w ciągu 24 h');location.hash='#/panel'};
+  const lb=$('#laterBtn'); if(lb) lb.onclick=e=>{e.preventDefault();toast('Prawnik oddzwoni w ciągu 24 h');location.hash='#panel'};
   const cv=$('#sig'); if(cv) initSig(cv);
 }
 function runScan(){
@@ -937,7 +938,7 @@ function renderPanel(){
       <div>
         <div class="card" style="margin-bottom:20px">
           <h3><svg class="i" style="color:var(--amber)"><use href="#i-bell"/></svg>Do zrobienia</h3>
-          <div class="todo ${c.signed?'ok-t':''}"><span class="ic"><svg class="i"><use href="#i-pen"/></svg></span><div><b>Pełnomocnictwo</b><br><small class="muted">${c.signed?'Podpisane':'Wymaga podpisu'}</small></div>${c.signed?'<span class="status st-green" style="margin-left:auto">✓</span>':'<a class="btn btn-primary" href="#/weryfikacja">Podpisz</a>'}</div>
+          <div class="todo ${c.signed?'ok-t':''}"><span class="ic"><svg class="i"><use href="#i-pen"/></svg></span><div><b>Pełnomocnictwo</b><br><small class="muted">${c.signed?'Podpisane':'Wymaga podpisu'}</small></div>${c.signed?'<span class="status st-green" style="margin-left:auto">✓</span>':'<a class="btn btn-primary" href="#weryfikacja">Podpisz</a>'}</div>
           <div class="todo ${c.paid?'ok-t':''}"><span class="ic"><svg class="i"><use href="#i-card"/></svg></span><div><b>Opłata za usługę</b><br><small class="muted">${c.paid?'Opłacono':'Pakiet '+c.pkg}</small></div>${c.paid?'<span class="status st-green" style="margin-left:auto">✓</span>':'<button class="btn btn-primary" id="payBtn">Opłać</button>'}</div>
           <div class="todo"><span class="ic"><svg class="i"><use href="#i-chat"/></svg></span><div><b>Potwierdź klasy</b><br><small class="muted">Pytanie od prawnika</small></div><button class="btn btn-ghost" data-go="wiadomosci">Odpowiedz</button></div>
         </div>
