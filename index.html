@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ochrona Logo – zastrzeż znak towarowy</title>
+<meta name="description" content="Bezpłatna wstępna weryfikacja i zastrzeżenie znaku towarowego w Polsce, UE i na świecie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e1a3c; --navy-2:#16265a; --indigo:#2b3f9e; --blue:#2f6bff;
+  --gold:#d4ad52; --gold-2:#f3d98b; --green:#1fbf6a; --green-d:#16a35a;
+  --red:#e5484d; --amber:#f5a524;
+  --ink:#121a2e; --muted:#5b6478; --line:#e5e8f0; --bg:#ffffff; --soft:#f4f6fb; --card:#ffffff;
+  --radius:20px; --shadow:0 10px 30px rgba(14,26,60,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 26px;font-weight:700;cursor:pointer;text-decoration:none;transition:.15s transform,.15s background,.15s box-shadow;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(31,191,106,.35)}
+.btn-primary:hover{background:var(--green-d)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-2)}
+.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--navy)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-block{width:100%;white-space:normal;text-align:center}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+h1,h2,h3{line-height:1.15;margin:0 0 12px}
+h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em}
+.center{text-align:center}
+.muted{color:var(--muted)}
+.hide{display:none!important}
+svg.i{width:20px;height:20px;flex:none}
+
+/* ---------- header ---------- */
+header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;text-decoration:none;color:var(--navy);letter-spacing:-.02em}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--indigo));display:grid;place-items:center;color:var(--gold);font-size:16px;font-weight:800}
+.logo b{color:var(--gold)}
+nav.main{display:flex;gap:22px;font-size:14px;font-weight:500}
+nav.main a{text-decoration:none;color:var(--muted)}
+nav.main a:hover{color:var(--navy)}
+.top-right{margin-left:auto;display:flex;gap:12px;align-items:center}
+.top-right .btn{padding:10px 18px;font-size:14px}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:6px}
+@media(max-width:900px){nav.main{display:none}.top-right .hide-sm{display:none}}
+
+/* ---------- hero (AirHelp-like gradient card) ---------- */
+.hero{padding:28px 0 10px}
+.hero-card{position:relative;border-radius:28px;overflow:hidden;background:radial-gradient(1200px 500px at 85% 120%,#c9a54b55,transparent 60%),linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 45%,var(--indigo) 100%);color:#fff;display:grid;grid-template-columns:1.05fr .95fr;min-height:560px}
+.hero-left{padding:56px 48px;position:relative;z-index:2}
+.hero h1{font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--gold-2)}
+.hero p.lead{color:#d5dbf3;font-size:17px;max-width:520px;margin:0 0 26px}
+.q-box{background:#fff;color:var(--ink);border-radius:20px;padding:22px;max-width:480px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.q-box h3{font-size:18px;text-align:center;margin-bottom:14px}
+.opt{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;margin-bottom:10px;font-weight:500;font-size:15px;transition:.15s}
+.opt:hover{border-color:#b9c3e6}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .ic{width:34px;height:34px;border-radius:10px;background:var(--soft);display:grid;place-items:center;color:var(--indigo)}
+.opt .chk{margin-left:auto;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center}
+.opt.on{border-color:var(--indigo);background:#f3f5ff}
+.opt.on .chk{border-color:var(--indigo);background:var(--indigo)}
+.opt.on .chk::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.search-row{display:flex;gap:8px;margin:6px 0 12px}
+.search-row input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;outline:none}
+.search-row input:focus{border-color:var(--indigo)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13px;color:#cfd6f0}
+.trust span{display:flex;align-items:center;gap:6px}
+.trust svg{color:var(--green)}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;padding:40px}
+.cert{width:min(380px,90%);aspect-ratio:1/1.3;background:linear-gradient(160deg,#fffdf6,#f6edd4);border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(4deg);padding:28px 26px;color:var(--navy);position:relative;border:8px solid #fff}
+.cert::before{content:"";position:absolute;inset:10px;border:1.5px solid #d4ad5288;border-radius:4px}
+.cert .c-top{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7440;margin-top:8px}
+.cert .c-title{text-align:center;font-weight:800;font-size:22px;margin:10px 0 4px;font-family:Georgia,serif}
+.cert .c-line{height:7px;background:#e7dcc0;border-radius:4px;margin:9px 18px}
+.cert .c-line.s{margin-right:90px}
+.cert .c-brand{margin:22px auto 10px;width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--indigo));display:grid;place-items:center;color:var(--gold-2);font-weight:800;font-size:28px;overflow:hidden}
+.cert .c-brand img{width:100%;height:100%;object-fit:cover}
+.seal{position:absolute;right:22px;bottom:22px;width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold-2),var(--gold) 60%,#a9853a);display:grid;place-items:center;color:var(--navy);font-weight:800;font-size:11px;text-align:center;line-height:1.1;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.float-badge{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:10px 14px;box-shadow:0 14px 30px rgba(0,0,0,.25);font-size:13px;display:flex;gap:10px;align-items:center;z-index:3}
+.float-badge b{display:block;font-size:15px}
+.fb1{left:6%;top:16%}.fb2{right:5%;bottom:12%}
+.dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff}
+@media(max-width:960px){.hero-card{grid-template-columns:minmax(0,1fr)}.hero-right{display:none}.hero-left{padding:36px 22px}}
+
+/* ---------- reviews strip ---------- */
+section{padding:72px 0}
+.reviews h2{font-size:22px;text-align:center;color:var(--indigo);font-weight:700}
+.reviews h2 b{color:var(--gold)}
+.rev-row{display:grid;grid-template-columns:1.1fr repeat(4,1fr);gap:16px;margin-top:22px}
+.rev-score{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;border-radius:16px;padding:20px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.rev-score .big{font-size:36px;font-weight:800}
+.stars{color:var(--gold);letter-spacing:2px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);font-size:14px}
+.rev .who{margin-top:10px;font-size:12px;color:var(--muted)}
+@media(max-width:960px){.rev-row{grid-template-columns:1fr 1fr}.rev-score{grid-column:1/-1}}
+@media(max-width:560px){.rev-row{grid-template-columns:1fr}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.stat{background:var(--soft);border-radius:18px;padding:24px;text-align:center}
+.stat .n{font-size:34px;font-weight:800;color:var(--navy)}
+.stat .n small{color:var(--gold)}
+.stat .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+@media(max-width:800px){.stats{grid-template-columns:1fr 1fr}}
+
+/* ---------- steps + calculator ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.two{grid-template-columns:minmax(0,1fr)}.panel-dark,.panel-light{padding:26px 20px}.panel-dark .btn,.banner .btn,.cta-strip .btn{white-space:normal;text-align:center}}
+.panel-dark{border-radius:24px;padding:40px;color:#fff;background:radial-gradient(600px 300px at 100% 100%,#c9a54b44,transparent 60%),linear-gradient(135deg,var(--navy),var(--indigo))}
+.panel-dark h2{font-size:28px}
+.panel-dark p{color:#cfd6f0}
+.steps{list-style:none;padding:0;margin:22px 0 28px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--navy);font-weight:800;display:grid;place-items:center}
+.steps b{display:block}
+.steps span{color:#cfd6f0;font-size:14px}
+.panel-light{border-radius:24px;padding:40px;background:linear-gradient(180deg,#f3f6ff,#e9eefc)}
+.panel-light h2{font-size:28px;color:var(--indigo);text-align:center}
+.calc-tabs{display:flex;background:#fff;border-radius:999px;padding:5px;gap:4px;margin:18px 0 24px}
+.calc-tabs button{flex:1;border:0;background:none;border-radius:999px;padding:10px;font-weight:600;cursor:pointer;color:var(--muted)}
+.calc-tabs button.on{background:var(--navy);color:#fff}
+.calc-row{display:flex;align-items:center;gap:14px;margin:16px 0}
+.calc-row label{font-weight:600;font-size:14px;width:110px}
+.calc-row input[type=range]{flex:1;accent-color:var(--indigo)}
+.calc-out{background:#fff;border-radius:16px;padding:18px 20px;margin-top:10px}
+.calc-out .line{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.calc-out .line:last-child{border:0;font-weight:800;font-size:18px;color:var(--navy)}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* ---------- why (benefits) ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.why{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.why .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:#eef2ff;color:var(--indigo);margin-bottom:14px}
+.why h3{font-size:19px}
+.why p{color:var(--muted);margin:0;font-size:15px}
+@media(max-width:800px){.why-grid{grid-template-columns:1fr}}
+
+/* ---------- awards strip ---------- */
+.awards-title{text-align:center;font-weight:700;font-size:18px}
+.awards-title b{color:var(--indigo)}
+.awards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.award{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px}
+.award .medal{width:46px;height:46px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 35%,var(--gold-2),var(--gold) 60%,#a9853a);display:grid;place-items:center;font-weight:800;color:var(--navy);font-size:13px}
+@media(max-width:900px){.awards{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.awards{grid-template-columns:1fr}}
+
+/* ---------- big banner ---------- */
+.banner{position:relative;color:#fff;text-align:center;padding:110px 0;background:radial-gradient(900px 400px at 20% 0%,#2b3f9e,transparent 60%),radial-gradient(800px 400px at 90% 100%,#c9a54b66,transparent 60%),linear-gradient(180deg,#0b1430,#16265a)}
+.banner h2{font-size:clamp(28px,4vw,44px)}
+.banner p{color:#d5dbf3;margin:6px 0}
+.banner .pill{display:inline-block;background:#ffffff18;border:1px solid #ffffff33;border-radius:999px;padding:6px 14px;font-size:12px;margin-bottom:18px}
+.banner .cta{margin-top:28px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- testimonials (clients w/ certificates) ---------- */
+.clients{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px}
+.client{border-radius:18px;overflow:hidden;background:var(--soft);aspect-ratio:3/4;position:relative;display:flex;align-items:flex-end}
+.client .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:40px;font-weight:800;color:#fff}
+.client .cap{position:relative;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;padding:40px 14px 14px;width:100%;font-size:13px}
+.client .cap b{display:block;font-size:14px}
+@media(max-width:900px){.clients{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- FAQ ---------- */
+.faq-box{background:var(--soft);border-radius:28px;padding:48px;display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.faq-box h2{font-size:30px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--indigo)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin:10px 0 0;font-size:15px}
+@media(max-width:900px){.faq-box{grid-template-columns:1fr;padding:28px 20px}}
+
+/* ---------- CTA strip ---------- */
+.cta-strip{border-radius:24px;padding:44px;text-align:center;color:#fff;background:linear-gradient(120deg,var(--navy),var(--indigo))}
+.cta-strip h2{font-size:clamp(24px,3vw,32px)}
+.cta-strip p{color:#cfd6f0}
+.avatars{display:flex;justify-content:center;margin-top:18px}
+.avatars span{width:34px;height:34px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:grid;place-items:center;font-size:12px;font-weight:700}
+
+/* ---------- extras (pakiet korzyści) ---------- */
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:40px;border-radius:28px;background:linear-gradient(180deg,#eef2ff,#dfe7ff)}
+.extra{background:#fff;border-radius:22px;padding:32px;text-align:center}
+.extra .medal{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--gold-2),var(--gold) 60%,#a9853a);display:grid;place-items:center;color:var(--navy);font-weight:800;font-size:13px;text-align:center;line-height:1.15}
+.extra h3{font-size:22px}
+.extra p{color:var(--muted)}
+@media(max-width:800px){.extras{grid-template-columns:1fr;padding:20px}}
+
+/* ---------- newsletter + guide ---------- */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.news .a{border-radius:24px;padding:40px;color:#fff;background:linear-gradient(135deg,var(--indigo),var(--navy))}
+.news .a form{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.news .a input{flex:1;min-width:180px;border:0;border-radius:999px;padding:12px 16px}
+.news .b{border-radius:24px;padding:40px;background:var(--soft);display:flex;gap:20px;align-items:center}
+.book{width:120px;flex:none;aspect-ratio:3/4;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--indigo));color:var(--gold-2);font-weight:800;padding:14px;font-size:13px;box-shadow:8px 10px 0 #d4ad5244}
+@media(max-width:800px){.news{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:56px 0 30px;font-size:14px;margin-top:72px}
+.f-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.f-cols h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.f-cols a{display:block;text-decoration:none;color:var(--ink);margin-bottom:8px}
+.f-cols a:hover{color:var(--indigo)}
+.f-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:34px;padding-top:20px;color:var(--muted);font-size:13px}
+@media(max-width:800px){.f-cols{grid-template-columns:1fr 1fr}}
+
+/* ---------- chat bubble ---------- */
+.chat-fab{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--navy);color:#fff;border:0;box-shadow:0 10px 24px rgba(14,26,60,.35);cursor:pointer;display:grid;place-items:center;z-index:60}
+.chat-pop{position:fixed;right:22px;bottom:92px;width:min(340px,calc(100vw - 32px));background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(14,26,60,.25);z-index:60;overflow:hidden}
+.chat-pop .h{background:var(--navy);color:#fff;padding:16px}
+.chat-pop .b{padding:16px;font-size:14px}
+.chat-pop .b .msg{background:var(--soft);border-radius:12px;padding:10px 12px;margin-bottom:10px}
+
+/* =================== WIZARD =================== */
+.wiz{min-height:100vh;background:var(--soft)}
+.wiz-top{background:#fff;border-bottom:1px solid var(--line)}
+.wiz-top .wrap{display:flex;align-items:center;height:64px;gap:16px}
+.wiz-top .help{margin-left:auto;font-size:14px;color:var(--muted)}
+.wiz-body{display:grid;grid-template-columns:240px minmax(0,1fr) 260px;gap:24px;padding:32px 20px;max-width:1180px;margin:0 auto}
+@media(max-width:1060px){.wiz-body{grid-template-columns:1fr}.wiz-side,.wiz-aside{display:none}}
+.wiz-side{background:#fff;border-radius:20px;padding:24px;height:fit-content;position:sticky;top:20px}
+.wiz-side ol{list-style:none;padding:0;margin:0}
+.wiz-side li{display:flex;gap:12px;align-items:center;padding:10px 0;color:var(--muted);font-weight:500;font-size:15px}
+.wiz-side li .n{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700}
+.wiz-side li.done{color:var(--ink)}
+.wiz-side li.done .n{background:var(--green);border-color:var(--green);color:#fff}
+.wiz-side li.cur{color:var(--navy);font-weight:700}
+.wiz-side li.cur .n{border-color:var(--indigo);color:var(--indigo)}
+.progress{height:6px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:22px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--indigo),var(--green));width:0;transition:.3s width}
+.wiz-main{background:#fff;border-radius:20px;padding:36px;min-height:520px}
+.wiz-main h2{font-size:26px}
+.wiz-main .sub{color:var(--muted);margin:0 0 24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;outline:none;background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--indigo)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}.wiz-main{padding:22px}}
+.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:700px){.choice-grid{grid-template-columns:1fr}}
+.choice{border:1.5px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;text-align:left;background:#fff;transition:.15s;position:relative}
+.choice:hover{border-color:#b9c3e6}
+.choice.on{border-color:var(--indigo);background:#f3f5ff;box-shadow:0 0 0 3px #2b3f9e22}
+.choice b{display:block;margin:8px 0 4px}
+.choice small{color:var(--muted)}
+.choice .tag{position:absolute;top:10px;right:10px;font-size:11px;background:var(--gold);color:var(--navy);border-radius:999px;padding:2px 8px;font-weight:700}
+.drop{border:2px dashed #c3cbe4;border-radius:16px;padding:26px;text-align:center;color:var(--muted);cursor:pointer;background:#fafbff}
+.drop.has{border-style:solid;border-color:var(--green)}
+.drop img{max-height:110px;max-width:220px;display:block;margin:0 auto 8px;border-radius:8px}
+.classes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-height:380px;overflow:auto;padding-right:4px}
+@media(max-width:700px){.classes{grid-template-columns:1fr}}
+.cls{display:flex;gap:10px;border:1.5px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;font-size:14px;align-items:flex-start}
+.cls.on{border-color:var(--indigo);background:#f3f5ff}
+.cls .k{flex:none;width:34px;height:34px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-weight:800;color:var(--indigo);font-size:13px}
+.cls.on .k{background:var(--indigo);color:#fff}
+.cls small{display:block;color:var(--muted)}
+.wiz-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.wiz-aside .box{background:#fff;border-radius:20px;padding:22px;margin-bottom:16px}
+.wiz-aside h4{margin:0 0 10px;font-size:15px}
+.sum-line{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line);gap:10px}
+.sum-line span:last-child{font-weight:600;text-align:right}
+.lawyer{display:flex;gap:12px;align-items:center}
+.av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#a9853a);display:grid;place-items:center;color:#fff;font-weight:800;flex:none}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:10px 0;cursor:pointer}
+.check input{margin-top:3px;accent-color:var(--indigo)}
+/* scanning */
+.scan{display:flex;flex-direction:column;gap:12px;margin:10px 0 20px}
+.scan-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:14px}
+.spin{width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--indigo);animation:sp .8s linear infinite;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ok{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex:none}
+.warn{background:var(--amber)}
+.result{border-radius:18px;padding:24px;display:flex;gap:20px;align-items:center}
+.result.good{background:#e9f9f0;border:1px solid #bfecd2}
+.result.mid{background:#fff7e6;border:1px solid #fde2a8}
+.gauge{width:96px;height:96px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:22px;position:relative}
+.gauge::after{content:"";position:absolute;inset:10px;background:#fff;border-radius:50%}
+.gauge span{position:relative;z-index:1}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+
+@media(max-width:700px){.pkg-grid{grid-template-columns:1fr}}
+.pkg{border:1.5px solid var(--line);border-radius:18px;padding:18px 16px;cursor:pointer;position:relative}
+.pkg.on{border-color:var(--indigo);box-shadow:0 0 0 3px #2b3f9e22}
+.pkg .price{font-size:21px;white-space:nowrap;font-weight:800;color:var(--navy);margin:8px 0}
+.pkg ul{padding-left:18px;margin:8px 0 0;font-size:13px;color:var(--muted)}
+.pkg .pop{position:absolute;top:-11px;left:14px;white-space:nowrap;background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px}
+.sig{border:1.5px dashed #c3cbe4;border-radius:14px;height:150px;width:100%;background:#fafbff;touch-action:none;cursor:crosshair;display:block}
+.done-hero{text-align:center;padding:30px 0}
+.done-hero .big-ok{width:84px;height:84px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;margin:0 auto 18px}
+
+/* =================== PANEL KLIENTA =================== */
+.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh;background:var(--soft)}
+.app-side{background:var(--navy);color:#cfd6f0;padding:22px 16px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh}
+.app-side .logo{color:#fff;margin:0 8px 26px}
+.app-side a{display:flex;gap:12px;align-items:center;padding:11px 12px;border-radius:12px;text-decoration:none;font-weight:500;font-size:15px;cursor:pointer}
+.app-side a:hover{background:#ffffff12;color:#fff}
+.app-side a.on{background:#ffffff1c;color:#fff}
+.app-side a .badge{margin-left:auto;background:var(--gold);color:var(--navy);font-size:11px;font-weight:800;border-radius:999px;padding:1px 8px}
+.app-side .bottom{margin-top:auto;font-size:13px;padding:12px;border-radius:14px;background:#ffffff10}
+.app-main{padding:28px 32px;min-width:0}
+.app-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.app-head h1{font-size:26px;margin:0}
+.app-head .me{margin-left:auto;display:flex;gap:10px;align-items:center;font-size:14px}
+.cards{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media(max-width:1100px){.cards{grid-template-columns:1fr}}
+@media(max-width:820px){.app{grid-template-columns:1fr}.app-side{position:static;height:auto;flex-direction:row;overflow-x:auto;padding:10px}.app-side .logo,.app-side .bottom{display:none}.app-side a{white-space:nowrap}.app-main{padding:20px 16px}}
+.card{background:#fff;border-radius:20px;padding:24px;box-shadow:0 1px 0 var(--line)}
+.card h3{font-size:17px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.case-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.case-logo{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--indigo));color:var(--gold-2);font-weight:800;font-size:22px;display:grid;place-items:center;overflow:hidden;flex:none}
+.case-logo img{width:100%;height:100%;object-fit:cover}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px}
+.st-blue{background:#e8edff;color:var(--indigo)}
+.st-green{background:#e3f8ec;color:var(--green-d)}
+.st-amber{background:#fff3dc;color:#a76a00}
+.tl{list-style:none;padding:0;margin:24px 0 0;position:relative}
+.tl::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 22px 44px}
+.tl li .b{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center}
+.tl li.done .b{background:var(--green);border-color:var(--green);color:#fff}
+.tl li.cur .b{border-color:var(--indigo);box-shadow:0 0 0 5px #2b3f9e1a}
+.tl li.cur .b::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--indigo)}
+.tl li b{display:block}
+.tl li small{color:var(--muted)}
+.todo{display:flex;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+.todo .ic{width:38px;height:38px;border-radius:12px;background:#fff3dc;color:#a76a00;display:grid;place-items:center;flex:none}
+.todo.ok-t .ic{background:#e3f8ec;color:var(--green-d)}
+.todo .btn{margin-left:auto;padding:8px 14px;font-size:13px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px}
+.kv div small{display:block;color:var(--muted);font-size:12px}
+.msgs{display:flex;flex-direction:column;gap:12px;max-height:420px;overflow:auto;padding:4px}
+.m{max-width:78%;padding:12px 14px;border-radius:16px;font-size:14px}
+.m small{display:block;font-size:11px;opacity:.7;margin-top:4px}
+.m.them{background:var(--soft);border-top-left-radius:4px}
+.m.me{background:var(--indigo);color:#fff;margin-left:auto;border-top-right-radius:4px}
+.composer{display:flex;gap:8px;margin-top:14px}
+.composer input{flex:1;border:1.5px solid var(--line);border-radius:999px;padding:12px 16px;outline:none;min-width:0}
+.doc{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.doc:last-child{border:0}
+.doc .ic{width:38px;height:38px;border-radius:10px;background:#eef2ff;color:var(--indigo);display:grid;place-items:center;flex:none}
+.doc a{margin-left:auto;font-weight:600;color:var(--indigo);text-decoration:none;font-size:13px}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th{text-align:left;color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:10px 8px;border-bottom:1px solid var(--line)}
+.table td{padding:14px 8px;border-bottom:1px solid var(--line)}
+.toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--navy);color:#fff;border-radius:999px;padding:12px 20px;font-size:14px;z-index:99;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.demo-flag{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;white-space:nowrap;box-shadow:var(--shadow);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--muted);z-index:40}
+.demo-flag a{color:var(--indigo);font-weight:600;margin-left:6px}
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-type" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5 6V4h14v2M12 4v16M9 20h6"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="2" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 18l5-5 4 4 3-3 4 4"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M5.6 5.6l12.8 12.8"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.4 0-2.5.8-2.5 2s1.1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5v1.5M12 16v1.5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6 3h8l4 4v14H6V3z"/><path fill="none" stroke="currentColor" stroke-width="2" d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 11l8-7 8 7v9h-5v-6H9v6H4v-9z"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M3 10h18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M4 21c1-4 4-6 8-6s7 2 8 6"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6 16V11a6 6 0 1112 0v5l2 2H4l2-2zM10 20a2 2 0 004 0"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M20 20l-4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M8 11V8a4 4 0 018 0v3"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></symbol>
+</svg>
+
+<!-- =========================================================
+     VIEW 1: LANDING
+     ========================================================= -->
+<div id="view-home">
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
+    <nav class="main">
+      <a href="#jak">Jak to działa</a>
+      <a href="#koszt">Ile to kosztuje</a>
+      <a href="#dlaczego">Dlaczego warto</a>
+      <a href="#faq">FAQ</a>
+      <a href="#/panel">Panel klienta</a>
+    </nav>
+    <div class="top-right">
+      <a class="hide-sm" href="tel:+48000000000" style="font-size:14px;text-decoration:none;color:var(--muted)">☎ +48 000 000 000</a>
+      <a class="btn btn-ghost" href="#/panel">Zaloguj</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero"><div class="wrap">
+  <div class="hero-card">
+    <div class="hero-left">
+      <div class="eyebrow" style="color:var(--gold-2)">TOP #1 w Polsce · 7 200+ zastrzeżonych znaków</div>
+      <h1 style="margin-top:10px">Chcesz chronić swoją markę?<br><em>Zastrzeż logo i nazwę</em> na 10 lat.</h1>
+      <p class="lead">Sprawdzimy za darmo, czy Twój znak można zarejestrować. Przygotujemy dokumenty, złożymy je w urzędzie i poprowadzimy sprawę aż do świadectwa ochronnego.</p>
+
+      <form class="q-box" id="heroForm" autocomplete="off">
+        <h3>Co chcesz zastrzec?</h3>
+        <label class="opt on" data-val="slowny"><input type="radio" name="htype" value="slowny" checked><span class="ic"><svg class="i"><use href="#i-type"/></svg></span>Nazwę firmy lub produktu<span class="chk"></span></label>
+        <label class="opt" data-val="graficzny"><input type="radio" name="htype" value="graficzny"><span class="ic"><svg class="i"><use href="#i-image"/></svg></span>Logo (znak graficzny)<span class="chk"></span></label>
+        <label class="opt" data-val="slowno-graficzny"><input type="radio" name="htype" value="slowno-graficzny"><span class="ic"><svg class="i"><use href="#i-layers"/></svg></span>Nazwę razem z logo<span class="chk"></span></label>
+        <div class="search-row">
+          <input id="heroName" placeholder="Wpisz nazwę znaku, np. Kawiarnia Pod Lipą" aria-label="Nazwa znaku">
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Sprawdź za darmo, czy mogę zastrzec <svg class="i"><use href="#i-arrow"/></svg></button>
+      </form>
+
+      <div class="trust">
+        <span><svg class="i"><use href="#i-check"/></svg>Bezpłatna weryfikacja</span>
+        <span><svg class="i"><use href="#i-check"/></svg>Bez zobowiązań</span>
+        <span><svg class="i"><use href="#i-check"/></svg>Odpowiedź prawnika w 24 h</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="float-badge fb1"><span class="dot" style="background:var(--green)"><svg class="i"><use href="#i-check"/></svg></span><div><b>99,8%</b>skuteczności rejestracji</div></div>
+      <div class="cert">
+        <div class="c-top">Świadectwo ochronne</div>
+        <div class="c-title">na znak towarowy</div>
+        <div class="c-line"></div><div class="c-line s"></div>
+        <div class="c-brand" id="certBrand">TWOJE<br>LOGO</div>
+        <div class="c-line"></div><div class="c-line s"></div><div class="c-line"></div>
+        <div class="seal">10 LAT<br>OCHRONY</div>
+      </div>
+      <div class="float-badge fb2"><span class="dot" style="background:var(--gold)"><svg class="i"><use href="#i-shield"/></svg></span><div><b>21 126</b>zadowolonych klientów</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- reviews -->
+<section class="reviews" style="padding-top:44px"><div class="wrap">
+  <h2>Ponad <b>21 000 przedsiębiorców</b> powierzyło nam swoje marki</h2>
+  <div class="rev-row">
+    <div class="rev-score"><div class="big">4,9/5</div><div class="stars">★★★★★</div><div style="font-size:13px;color:#cfd6f0">średnia ocen w Google</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>Wszystko załatwione zdalnie, prawnik tłumaczył każdy krok. Świadectwo przyszło pocztą.</p><div class="who">Klient · branża gastronomiczna</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>Weryfikacja wykazała podobny znak – dzięki temu zmieniliśmy nazwę przed startem.</p><div class="who">Klientka · e-commerce</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>Szybki kontakt, jasna cena, panel w którym widzę status sprawy.</p><div class="who">Klient · usługi budowlane</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><p>Zastrzegliśmy logo w Polsce, a potem w całej UE. Polecam.</p><div class="who">Klient · produkcja</div></div>
+  </div>
+  <p class="center muted" style="font-size:12px;margin-top:14px">Opinie przykładowe – do podmiany na prawdziwe z Google/Trustpilot.</p>
+</div></section>
+
+<!-- steps + calculator -->
+<section id="jak" style="padding-top:20px"><div class="wrap two">
+  <div class="panel-dark">
+    <h2>4 kroki do ochrony Twojej marki</h2>
+    <p>Zastrzeżenie znaku nigdy nie było prostsze. My zajmujemy się formalnościami, a Ty prowadzisz biznes.</p>
+    <ol class="steps">
+      <li><div><b>Bezpłatna weryfikacja</b><span>Sprawdzamy bazy UPRP, EUIPO i WIPO pod kątem podobnych znaków.</span></div></li>
+      <li><div><b>Przygotowanie dokumentów</b><span>Dobieramy klasy towarów i usług, przygotowujemy zgłoszenie.</span></div></li>
+      <li><div><b>Złożenie wniosku i monitoring</b><span>Składamy zgłoszenie i reagujemy na pisma urzędu oraz sprzeciwy.</span></div></li>
+      <li><div><b>Świadectwo ochronne</b><span>Twój znak jest chroniony przez 10 lat, z możliwością przedłużenia.</span></div></li>
+    </ol>
+    <a class="btn btn-gold" href="#/weryfikacja">Rozpocznij bezpłatną weryfikację <svg class="i"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="panel-light" id="koszt">
+    <h2>Ile kosztuje ochrona?</h2>
+    <p class="center muted" style="margin:0">Oblicz orientacyjne opłaty urzędowe dla swojego znaku.</p>
+    <div class="calc-tabs" role="tablist">
+      <button class="on" data-reg="pl">Polska</button>
+      <button data-reg="eu">Unia Europejska</button>
+      <button data-reg="world">Świat</button>
+    </div>
+    <div class="calc-row"><label>Liczba klas</label><input type="range" id="calcK" min="1" max="10" value="1"><b id="calcKv" style="width:24px;text-align:right">1</b></div>
+    <div class="calc-out" id="calcOut"></div>
+    <p class="note">Kwoty orientacyjne – zweryfikuj z aktualnym cennikiem urzędu. Honorarium kancelarii podajemy po bezpłatnej weryfikacji.</p>
+  </div>
+</div></section>
+
+<!-- awards / numbers -->
+<section style="padding-top:10px"><div class="wrap">
+  <p class="awards-title">ochronalogo.pl to <b>numer 1</b> w rejestracji znaków towarowych w Polsce</p>
+  <div class="awards">
+    <div class="award"><span class="medal">#1</span><div><b>17% rynku</b><br><span class="muted">zgłoszeń w Polsce</span></div></div>
+    <div class="award"><span class="medal">7K+</span><div><b>7 200+ znaków</b><br><span class="muted">zarejestrowanych z nami</span></div></div>
+    <div class="award"><span class="medal">21K</span><div><b>21 126 klientów</b><br><span class="muted">zaufało naszym prawnikom</span></div></div>
+    <div class="award"><span class="medal">99%</span><div><b>99,8% skuteczności</b><br><span class="muted">w rejestracji znaków</span></div></div>
+  </div>
+</div></section>
+
+<!-- big banner -->
+<section class="banner"><div class="wrap">
+  <div class="pill">Stała cena · bez ukrytych kosztów</div>
+  <h2>Jedna opłata. Zero ryzyka.<br>Wszystkim się zajmiemy.</h2>
+  <p>Weryfikacja jest bezpłatna i do niczego nie zobowiązuje.</p>
+  <p>Cenę znasz przed podpisaniem umowy – bez dopłat za pisma i korespondencję z urzędem.</p>
+  <p>Cały proces online – bez wizyt w kancelarii i urzędzie.</p>
+  <div class="cta">
+    <a class="btn btn-white" href="#/weryfikacja">Sprawdź swój znak za darmo</a>
+    <a class="btn" style="color:#fff;border:1.5px solid #ffffff55" href="#koszt">Zobacz koszty</a>
+  </div>
+</div></section>
+
+<!-- why -->
+<section id="dlaczego"><div class="wrap">
+  <div class="center"><div class="eyebrow">Dlaczego warto</div><h2>Dlaczego warto zastrzec logo?</h2></div>
+  <div class="why-grid">
+    <div class="why"><div class="ic"><svg class="i"><use href="#i-shield"/></svg></div><h3>Chroń markę</h3><p>Rejestracja znaku daje Ci wyłączne prawo do jego używania w obrocie. Twoja marka jest bezpieczna.</p></div>
+    <div class="why"><div class="ic"><svg class="i"><use href="#i-ban"/></svg></div><h3>Ogranicz konkurencję</h3><p>Zastrzeżony znak pozwala skutecznie reagować na podróbki i podszywanie się pod Twoją firmę.</p></div>
+    <div class="why"><div class="ic"><svg class="i"><use href="#i-coin"/></svg></div><h3>Zarabiaj</h3><p>Znak towarowy to aktywo firmy – możesz go licencjonować, sprzedać lub wnieść aportem.</p></div>
+  </div>
+</div></section>
+
+<!-- clients -->
+<section style="background:var(--soft)"><div class="wrap">
+  <div class="center"><h2>Nasi klienci, którzy otrzymali już świadectwo</h2><p class="muted">Tu trafią zdjęcia klientów ze świadectwami (jak na obecnej stronie).</p></div>
+  <div class="clients">
+    <div class="client"><div class="ph" style="background:linear-gradient(135deg,#2b3f9e,#0e1a3c)">A</div><div class="cap"><b>Anna K.</b>Studio urody</div></div>
+    <div class="client"><div class="ph" style="background:linear-gradient(135deg,#a9853a,#d4ad52)">M</div><div class="cap"><b>Marek W.</b>Firma budowlana</div></div>
+    <div class="client"><div class="ph" style="background:linear-gradient(135deg,#16265a,#2f6bff)">K</div><div class="cap"><b>Katarzyna P.</b>Sklep internetowy</div></div>
+    <div class="client"><div class="ph" style="background:linear-gradient(135deg,#0e1a3c,#a9853a)">T</div><div class="cap"><b>Tomasz L.</b>Gastronomia</div></div>
+    <div class="client"><div class="ph" style="background:linear-gradient(135deg,#2b3f9e,#1fbf6a)">P</div><div class="cap"><b>Piotr S.</b>Produkcja</div></div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq"><div class="wrap">
+  <div class="faq-box">
+    <div>
+      <h2>Często zadawane pytania</h2>
+      <p class="muted">Masz inne pytanie? <a href="#" data-open-chat style="color:var(--indigo);font-weight:600">Napisz do prawnika</a></p>
+    </div>
+    <div>
+      <details><summary>Na jak długo zastrzegam znak towarowy?</summary><p>Prawo ochronne udzielane jest na 10 lat od daty zgłoszenia. Ochronę można przedłużać na kolejne 10-letnie okresy.</p></details>
+      <details><summary>Ile trwa rejestracja znaku w Urzędzie Patentowym RP?</summary><p>Zwykle kilka miesięcy – po publikacji zgłoszenia biegnie 3-miesięczny termin na sprzeciw. Ochrona działa wstecznie od daty zgłoszenia.</p></details>
+      <details><summary>Czym są klasy towarów i usług?</summary><p>To kategorie z Klasyfikacji Nicejskiej (45 klas). Znak chroniony jest tylko w zakresie wskazanych klas – dlatego dobieramy je razem z Tobą.</p></details>
+      <details><summary>Czy mogę zastrzec samo logo bez nazwy?</summary><p>Tak. Można zgłosić znak słowny, graficzny lub słowno-graficzny. Doradzimy, który wariant daje najszerszą ochronę.</p></details>
+      <details><summary>Co jeśli ktoś ma już podobny znak?</summary><p>Wykryjemy to na etapie bezpłatnej weryfikacji i zaproponujemy rozwiązanie – zmianę zakresu klas, modyfikację znaku lub strategię zgłoszenia.</p></details>
+      <details><summary>Czy muszę przyjeżdżać do kancelarii?</summary><p>Nie. Cały proces odbywa się online – pełnomocnictwo podpisujesz elektronicznie w panelu klienta.</p></details>
+    </div>
+  </div>
+</div></section>
+
+<!-- CTA strip -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="cta-strip">
+    <h2>Większość firm nie sprawdza, czy ich marka jest chroniona.<br>Ci, którzy to robią – śpią spokojnie.</h2>
+    <p>Weryfikacja jest bezpłatna. Decyzję o zgłoszeniu podejmujesz po poznaniu wyniku.</p>
+    <a class="btn btn-gold" href="#/weryfikacja" style="margin-top:12px">Sprawdź, czy możesz zastrzec znak</a>
+    <div class="avatars"><span style="background:#d4ad52">AK</span><span style="background:#1fbf6a">MW</span><span style="background:#2f6bff;color:#fff">KP</span><span style="background:#f3d98b">TL</span></div>
+    <p style="font-size:13px;margin-top:8px">Ponad 21 000 klientów zaufało ochronalogo.pl</p>
+  </div>
+</div></section>
+
+<!-- extras -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="center" style="margin-bottom:24px"><div class="eyebrow">W pakiecie</div><h2>Twój dodatkowy pakiet korzyści</h2></div>
+  <div class="extras">
+    <div class="extra"><div class="medal">GRATIS</div><h3>Monitoring znaku</h3><p>Powiadomimy Cię, gdy ktoś spróbuje zgłosić podobny znak – i pomożemy złożyć sprzeciw.</p><a class="btn btn-ghost" href="#/weryfikacja">Dowiedz się więcej</a></div>
+    <div class="extra"><div class="medal">PRAWNIK<br>24 h</div><h3>Konsultacja z prawnikiem</h3><p>Opiekun sprawy odpowiada na pytania w panelu klienta – bez dodatkowych opłat.</p><a class="btn btn-ghost" href="#/panel">Zobacz panel klienta</a></div>
+  </div>
+</div></section>
+
+<!-- newsletter / guide -->
+<section style="padding-top:0"><div class="wrap news">
+  <div class="a">
+    <div class="eyebrow" style="color:var(--gold-2)">Bądź na bieżąco</div>
+    <h2 style="font-size:26px;margin-top:8px">Porady o ochronie marki prosto do skrzynki</h2>
+    <form onsubmit="event.preventDefault();toast('Dziękujemy! Sprawdź skrzynkę e-mail.');this.reset()"><input type="email" required placeholder="Twój adres e-mail"><button class="btn btn-gold">Zapisz się</button></form>
+  </div>
+  <div class="b">
+    <div class="book">PORADNIK<br><br>Jak zastrzec znak towarowy krok po kroku</div>
+    <div><div class="eyebrow">Darmowy e-book</div><h3 style="font-size:22px;margin-top:6px">Pobierz nasz poradnik</h3><p class="muted">Klasy, koszty, terminy i najczęstsze błędy przy zgłoszeniu.</p><a href="#" onclick="toast('Poradnik – plik PDF do podpięcia');return false" style="color:var(--indigo);font-weight:600">Pobierz za darmo →</a></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="f-cols">
+    <div><h4>Znak towarowy</h4><a href="#/weryfikacja">Bezpłatna weryfikacja</a><a href="#">Rejestracja w Polsce</a><a href="#">Rejestracja w UE</a><a href="#">Rejestracja międzynarodowa</a><a href="#">Przedłużenie ochrony</a></div>
+    <div><h4>Usługi</h4><a href="#">Monitoring znaku</a><a href="#">Sprzeciw wobec zgłoszenia</a><a href="#">Ochrona domeny</a><a href="#">Wzory przemysłowe</a></div>
+    <div><h4>Wiedza</h4><a href="#faq">FAQ</a><a href="#">Klasy nicejskie</a><a href="#">Blog</a><a href="#">Poradnik</a></div>
+    <div><h4>Firma</h4><a href="#">O nas</a><a href="#">Zespół prawników</a><a href="#">Opinie</a><a href="#">Kariera</a></div>
+    <div><h4>Kontakt</h4><a href="tel:+48000000000">+48 000 000 000</a><a href="mailto:kontakt@ochronalogo.pl">kontakt@ochronalogo.pl</a><a href="#/panel">Panel klienta</a></div>
+  </div>
+  <div class="f-bottom"><span>© 2026 ochronalogo.pl · Wszelkie prawa zastrzeżone</span><span><a href="#">Polityka prywatności</a> · <a href="#">Regulamin</a> · <a href="#">Cookies</a></span></div>
+</div></footer>
+</div>
+
+<!-- =========================================================
+     VIEW 2: WIZARD (bezpłatna weryfikacja)
+     ========================================================= -->
+<div id="view-wiz" class="wiz hide">
+  <div class="wiz-top"><div class="wrap">
+    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b>.pl</span></a>
+    <span class="help"><svg class="i" style="vertical-align:-5px"><use href="#i-lock"/></svg> Bezpieczne połączenie · Pomoc: +48 000 000 000</span>
+  </div></div>
+  <div class="wiz-body">
+    <aside class="wiz-side">
+      <div class="progress"><i id="wizBar"></i></div>
+      <ol id="wizSteps"></ol>
+    </aside>
+    <main class="wiz-main" id="wizMain"></main>
+    <aside class="wiz-aside">
+      <div class="box">
+        <h4>Twoje zgłoszenie</h4>
+        <div id="wizSummary"></div>
+      </div>
+      <div class="box">
+        <div class="lawyer"><div class="av">MC</div><div><b>Twój opiekun</b><br><span class="muted" style="font-size:13px">radca prawny · odpowiada w 24 h</span></div></div>
+        <p class="muted" style="font-size:13px;margin:12px 0 0">Masz pytanie w trakcie? <a href="#" data-open-chat style="color:var(--indigo);font-weight:600">Napisz do nas</a></p>
+      </div>
+      <div class="box" style="background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff">
+        <div class="stars">★★★★★</div>
+        <p style="font-size:14px;margin:8px 0 0">„Cały proces zajął mi 10 minut, resztą zajęli się prawnicy.”</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- =========================================================
+     VIEW 3: PANEL KLIENTA
+     ========================================================= -->
+<div id="view-panel" class="app hide">
+  <aside class="app-side">
+    <a class="logo" href="#/"><span class="logo-mark">®</span><span>ochrona<b>logo</b></span></a>
+    <a data-tab="sprawy" class="on"><svg class="i"><use href="#i-home"/></svg>Moje sprawy</a>
+    <a data-tab="wiadomosci"><svg class="i"><use href="#i-chat"/></svg>Wiadomości<span class="badge" id="msgBadge">1</span></a>
+    <a data-tab="dokumenty"><svg class="i"><use href="#i-doc"/></svg>Dokumenty</a>
+    <a data-tab="platnosci"><svg class="i"><use href="#i-card"/></svg>Płatności</a>
+    <a data-tab="ustawienia"><svg class="i"><use href="#i-user"/></svg>Moje dane</a>
+    <a href="#/weryfikacja"><svg class="i"><use href="#i-search"/></svg>Nowa weryfikacja</a>
+    <div class="bottom"><b style="color:#fff">Potrzebujesz pomocy?</b><br>Twój opiekun odpowiada w ciągu 24 h w zakładce Wiadomości.</div>
+  </aside>
+  <main class="app-main">
+    <div class="app-head">
+      <h1 id="panelTitle">Moje sprawy</h1>
+      <div class="me"><svg class="i" style="color:var(--muted)"><use href="#i-bell"/></svg><span class="av" style="width:36px;height:36px;font-size:13px" id="meAv">JK</span><span id="meName">Jan Kowalski</span><a href="#/" title="Wyloguj" style="color:var(--muted)"><svg class="i"><use href="#i-logout"/></svg></a></div>
+    </div>
+    <div id="panelBody"></div>
+  </main>
+</div>
+
+<div class="chat-fab" id="chatFab" title="Czat z prawnikiem"><svg class="i" style="width:26px;height:26px"><use href="#i-chat"/></svg></div>
+<div class="chat-pop hide" id="chatPop">
+  <div class="h"><b>Zapytaj prawnika</b><br><span style="font-size:13px;color:#cfd6f0">Odpowiadamy zwykle w kilka minut</span></div>
+  <div class="b">
+    <div class="msg">Dzień dobry! 👋 W czym mogę pomóc? Możesz też od razu rozpocząć bezpłatną weryfikację znaku.</div>
+    <a class="btn btn-primary btn-block" href="#/weryfikacja" onclick="chatPop.classList.add('hide')">Rozpocznij weryfikację</a>
+    <div class="composer"><input placeholder="Napisz wiadomość…"><button class="btn btn-gold" style="padding:10px 14px" onclick="toast('Wiadomość wysłana (demo)')">➤</button></div>
+  </div>
+</div>
+
+<script>
+/* ================= STATE ================= */
+const S = {
+  type:'slowny', name:'', logo:null, desc:'',
+  classes:[], region:'pl',
+  person:{first:'',last:'',email:'',phone:'',company:'',nip:''},
+  consent:false, marketing:false,
+  verified:false, risk:null, pkg:'standard',
+  signed:false, paid:false
+};
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2600)}
+
+/* ================= DATA ================= */
+const TYPES = {
+  'slowny':{t:'Znak słowny',d:'Sama nazwa – chroni brzmienie, niezależnie od czcionki i kolorów.',ic:'i-type'},
+  'graficzny':{t:'Znak graficzny',d:'Samo logo / symbol bez napisów.',ic:'i-image'},
+  'slowno-graficzny':{t:'Znak słowno-graficzny',d:'Nazwa w określonej formie graficznej (logo z napisem).',ic:'i-layers'}
+};
+const REGIONS = {
+  pl:{t:'Polska',d:'Urząd Patentowy RP',ic:'i-home'},
+  eu:{t:'Unia Europejska',d:'EUIPO – 27 państw jednym wnioskiem',ic:'i-layers',tag:'Popularne'},
+  world:{t:'Międzynarodowo',d:'WIPO – system madrycki, wybrane kraje',ic:'i-globe'}
+};
+const CLASSES = [
+  [3,'Kosmetyki','perfumy, środki czystości'],[5,'Farmacja','suplementy, leki'],
+  [9,'Elektronika i software','aplikacje, oprogramowanie'],[14,'Biżuteria','zegarki, wyroby jubilerskie'],
+  [16,'Papier i druki','opakowania, materiały biurowe'],[18,'Wyroby skórzane','torby, portfele'],
+  [20,'Meble','meble, wyposażenie'],[25,'Odzież','odzież, obuwie, nakrycia głowy'],
+  [28,'Gry i zabawki','artykuły sportowe'],[29,'Żywność (mięso, nabiał)','przetwory'],
+  [30,'Kawa, pieczywo, słodycze','przyprawy'],[32,'Napoje bezalkoholowe','piwo'],
+  [33,'Alkohole','wina, wódki'],[35,'Reklama i handel','sklepy, e-commerce, marketing'],
+  [36,'Finanse i nieruchomości','ubezpieczenia'],[37,'Budownictwo','usługi remontowe'],
+  [39,'Transport','logistyka, turystyka'],[41,'Edukacja i rozrywka','szkolenia, eventy'],
+  [42,'IT i nauka','SaaS, projektowanie'],[43,'Gastronomia i hotele','restauracje, kawiarnie'],
+  [44,'Medycyna i uroda','salony, gabinety'],[45,'Usługi prawne','ochrona, usługi osobiste']
+];
+/* Opłaty urzędowe – orientacyjne, do weryfikacji z aktualnymi cennikami */
+const FEES = {
+  pl:{cur:'zł',lines:k=>[['Zgłoszenie (1 klasa, e-zgłoszenie)',450],['Każda kolejna klasa',(k-1)*120],['Opłata za ochronę – 10 lat',400*k]]},
+  eu:{cur:'€',lines:k=>[['Zgłoszenie – 1. klasa',850],['2. klasa',k>1?50:0],['Klasy od 3.',Math.max(0,k-2)*150]]},
+  world:{cur:'CHF',lines:k=>[['Opłata podstawowa WIPO',653],['Opłaty krajowe (zależne od krajów)',null],['Liczba klas',k]]}
+};
+const PKGS = {
+  start:{t:'Start',p:'od 990 zł',d:['Znak w Polsce','1 klasa','Zgłoszenie + monitoring sprawy']},
+  standard:{t:'Standard',p:'od 1 490 zł',d:['Znak w Polsce','do 3 klas','Opieka prawnika do świadectwa','Monitoring znaku 12 mies.'],pop:true},
+  premium:{t:'Premium',p:'od 2 990 zł',d:['Polska + UE','do 3 klas','Sprzeciwy w cenie','Monitoring znaku 36 mies.']}
+};
+const BLOCKED = ['apple','nike','google','zara','orlen','allegro','biedronka','lego','adidas','samsung','coca','pepsi','ikea'];
+
+/* ================= ROUTER ================= */
+function route(){
+  const h = location.hash || '#/';
+  const views = {home:$('#view-home'),wiz:$('#view-wiz'),panel:$('#view-panel')};
+  Object.values(views).forEach(v=>v.classList.add('hide'));
+  if(h.startsWith('#/weryfikacja')){views.wiz.classList.remove('hide');renderWiz();window.scrollTo(0,0)}
+  else if(h.startsWith('#/panel')){views.panel.classList.remove('hide');renderPanel();window.scrollTo(0,0)}
+  else {views.home.classList.remove('hide'); if(h==='#/') window.scrollTo(0,0); else { const el=document.querySelector(h); el&&el.scrollIntoView(); }}
+  $('#chatFab').classList.toggle('hide', h.startsWith('#/panel'));
+}
+window.addEventListener('hashchange',route);
+
+/* ================= LANDING ================= */
+document.querySelectorAll('#heroForm .opt').forEach(o=>o.addEventListener('click',()=>{
+  document.querySelectorAll('#heroForm .opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');S.type=o.dataset.val;
+}));
+$('#heroForm').addEventListener('submit',e=>{
+  e.preventDefault(); S.name=$('#heroName').value.trim(); wizStep=0; location.hash='#/weryfikacja';
+});
+let calcReg='pl';
+function renderCalc(){
+  const k=+$('#calcK').value; $('#calcKv').textContent=k;
+  const f=FEES[calcReg]; let sum=0, html='';
+  f.lines(k).forEach(([l,v])=>{
+    if(calcReg==='world'&&l==='Liczba klas'){html+=`<div class="line"><span>${l}</span><span>${v}</span></div>`;return}
+    if(v===null){html+=`<div class="line"><span>${l}</span><span>wg wybranych krajów</span></div>`;return}
+    if(v===0)return; sum+=v; html+=`<div class="line"><span>${l}</span><span>${v.toLocaleString('pl-PL')} ${f.cur}</span></div>`;
+  });
+  html+=`<div class="line"><span>Razem opłaty urzędowe</span><span>${calcReg==='world'?'od ':''}${sum.toLocaleString('pl-PL')} ${f.cur}</span></div>`;
+  $('#calcOut').innerHTML=html;
+}
+document.querySelectorAll('.calc-tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.calc-tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');calcReg=b.dataset.reg;renderCalc();
+}));
+$('#calcK').addEventListener('input',renderCalc); renderCalc();
+
+/* chat */
+const chatPop=$('#chatPop');
+$('#chatFab').onclick=()=>chatPop.classList.toggle('hide');
+document.addEventListener('click',e=>{const a=e.target.closest('[data-open-chat]');if(a){e.preventDefault();chatPop.classList.remove('hide')}});
+
+/* ================= WIZARD ================= */
+const STEPS=['Twój znak','Zakres ochrony','Obszar ochrony','Dane kontaktowe','Wynik weryfikacji','Pełnomocnictwo'];
+let wizStep=0;
+
+function renderSide(){
+  $('#wizSteps').innerHTML=STEPS.map((s,i)=>`<li class="${i<wizStep?'done':i===wizStep?'cur':''}"><span class="n">${i<wizStep?'<svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg>':i+1}</span>${s}</li>`).join('');
+  $('#wizBar').style.width=Math.round((wizStep)/(STEPS.length)*100)+'%';
+  const p=S.person;
+  $('#wizSummary').innerHTML=[
+    ['Rodzaj',TYPES[S.type].t],['Nazwa',S.name||'—'],['Logo',S.logo?'dodane ✓':'—'],
+    ['Klasy',S.classes.includes(0)?'dobierze prawnik':S.classes.length?S.classes.sort((a,b)=>a-b).join(', '):'—'],['Obszar',REGIONS[S.region].t],
+    ['Zgłaszający',(p.first||p.last)?esc(p.first+' '+p.last):'—']
+  ].map(([a,b])=>`<div class="sum-line"><span class="muted">${a}</span><span>${esc(b)}</span></div>`).join('');
+  if(S.logo) $('#certBrand').innerHTML=`<img src="${S.logo}" alt="">`;
+}
+function nav(backOk=true,nextLabel='Dalej',nextOk=true){
+  return `<div class="wiz-nav">
+    ${backOk?`<button class="btn btn-ghost" data-back><svg class="i"><use href="#i-back"/></svg>Wstecz</button>`:'<a class="btn btn-ghost" href="#/"><svg class="i"><use href="#i-back"/></svg>Strona główna</a>'}
+    <button class="btn btn-primary" data-next ${nextOk?'':'disabled'}>${nextLabel} <svg class="i"><use href="#i-arrow"/></svg></button>
+  </div>`;
+}
+function renderWiz(){
+  renderSide();
+  const m=$('#wizMain'); let h='';
+  if(wizStep===0){
+    h=`<h2>Co chcesz zastrzec?</h2><p class="sub">Wybierz rodzaj znaku. Nie wiesz który? Wybierz najbliższy – prawnik doradzi podczas weryfikacji.</p>
+    <div class="choice-grid">${Object.entries(TYPES).map(([k,v])=>`<button class="choice ${S.type===k?'on':''}" data-type="${k}"><svg class="i" style="color:var(--indigo)"><use href="#${v.ic}"/></svg><b>${v.t}</b><small>${v.d}</small></button>`).join('')}</div>
+    <div class="field" style="margin-top:22px ${S.type==='graficzny'?';display:none':''}"><label for="fName">Nazwa znaku</label><input id="fName" value="${esc(S.name)}" placeholder="np. Kawiarnia Pod Lipą"></div>
+    <div class="field ${S.type==='slowny'?'hide':''}"><label>Logo</label>
+      <label class="drop ${S.logo?'has':''}" id="drop">${S.logo?`<img src="${S.logo}" alt="">Kliknij, aby zmienić`:`<svg class="i" style="width:28px;height:28px"><use href="#i-upload"/></svg><br><b style="color:var(--ink)">Przeciągnij plik lub kliknij</b><br><small>PNG, JPG lub SVG</small>`}<input type="file" accept="image/*" id="fLogo" hidden></label></div>
+    <div class="field"><label for="fDesc">Czym zajmuje się Twoja firma? <span class="muted" style="font-weight:400">(opcjonalnie)</span></label><textarea id="fDesc" rows="2" placeholder="np. kawiarnia z własnymi wypiekami i sprzedażą kawy online">${esc(S.desc)}</textarea></div>
+    ${nav(false,'Dalej',valid0())}`;
+  }
+  if(wizStep===1){
+    h=`<h2>W jakich branżach chcesz chronić znak?</h2><p class="sub">Znak chroniony jest tylko w wybranych klasach towarów i usług (Klasyfikacja Nicejska). Wybierz wszystkie, które pasują – zweryfikujemy je.</p>
+    <div class="classes">${CLASSES.map(([n,t,d])=>`<div class="cls ${S.classes.includes(n)?'on':''}" data-cls="${n}"><span class="k">${n}</span><div><b>${t}</b><small>${d}</small></div></div>`).join('')}</div>
+    <label class="check" style="margin-top:16px"><input type="checkbox" id="fUnsure" ${S.classes.includes(0)?'checked':''}>Nie wiem – niech prawnik dobierze klasy na podstawie opisu działalności</label>
+    ${nav(true,'Dalej',S.classes.length>0)}`;
+  }
+  if(wizStep===2){
+    h=`<h2>Gdzie chcesz chronić znak?</h2><p class="sub">Ochrona obowiązuje tylko na terytorium, w którym znak został zarejestrowany.</p>
+    <div class="choice-grid">${Object.entries(REGIONS).map(([k,v])=>`<button class="choice ${S.region===k?'on':''}" data-region="${k}">${v.tag?`<span class="tag">${v.tag}</span>`:''}<svg class="i" style="color:var(--indigo)"><use href="#${v.ic}"/></svg><b>${v.t}</b><small>${v.d}</small></button>`).join('')}</div>
+    ${nav(true,'Dalej',true)}`;
+  }
+  if(wizStep===3){
+    const p=S.person;
+    h=`<h2>Gdzie wysłać wynik weryfikacji?</h2><p class="sub">Na ten adres założymy też Twoje konto w panelu klienta.</p>
+    <div class="grid2"><div class="field"><label>Imię</label><input data-p="first" value="${esc(p.first)}"></div><div class="field"><label>Nazwisko</label><input data-p="last" value="${esc(p.last)}"></div></div>
+    <div class="grid2"><div class="field"><label>E-mail</label><input type="email" data-p="email" value="${esc(p.email)}" placeholder="jan@firma.pl"></div><div class="field"><label>Telefon</label><input type="tel" data-p="phone" value="${esc(p.phone)}" placeholder="+48"></div></div>
+    <div class="grid2"><div class="field"><label>Firma <span class="muted" style="font-weight:400">(opcjonalnie)</span></label><input data-p="company" value="${esc(p.company)}"></div><div class="field"><label>NIP <span class="muted" style="font-weight:400">(opcjonalnie)</span></label><input data-p="nip" value="${esc(p.nip)}"></div></div>
+    <label class="check"><input type="checkbox" id="fConsent" ${S.consent?'checked':''}>Akceptuję regulamin i politykę prywatności. *</label>
+    <label class="check"><input type="checkbox" id="fMkt" ${S.marketing?'checked':''}>Chcę otrzymywać porady o ochronie marki (opcjonalnie).</label>
+    ${nav(true,'Sprawdź mój znak',valid3())}`;
+  }
+  if(wizStep===4){
+    if(!S.verified){
+      h=`<h2>Sprawdzamy Twój znak…</h2><p class="sub">Przeszukujemy rejestry znaków podobnych do <b>${esc(S.name||'Twojego logo')}</b>.</p>
+      <div class="scan" id="scan">${['Rejestr UPRP (Polska)','Rejestr EUIPO (Unia Europejska)','Baza WIPO (międzynarodowa)','Analiza podobieństwa i klas'].map(t=>`<div class="scan-row"><span class="spin"></span>${t}</div>`).join('')}</div>`;
+      m.innerHTML=h; runScan(); return;
+    }
+    const good=S.risk==='low';
+    const pct=good?92:61, col=good?'var(--green)':'var(--amber)';
+    h=`<h2>Wynik wstępnej weryfikacji</h2><p class="sub">Wynik automatyczny – prawnik potwierdzi go w ciągu 24 h i wyśle szczegółowy raport na ${esc(S.person.email)}.</p>
+    <div class="result ${good?'good':'mid'}">
+      <div class="gauge" style="background:conic-gradient(${col} ${pct}%,#e5e8f0 0)"><span>${pct}%</span></div>
+      <div><b style="font-size:18px">${good?'Wysoka szansa rejestracji':'Wykryliśmy podobne znaki'}</b>
+      <p style="margin:6px 0 0" class="muted">${good?'Nie znaleźliśmy identycznych znaków w wybranych klasach. Możesz bezpiecznie zgłosić znak.':'W rejestrach są znaki zbliżone brzmieniowo. Rejestracja jest możliwa, ale prawnik zaproponuje strategię (np. zmianę zakresu klas lub formy znaku).'}</p></div>
+    </div>
+    <h3 style="margin-top:30px">Wybierz pakiet</h3>
+    <div class="pkg-grid">${Object.entries(PKGS).map(([k,v])=>`<div class="pkg ${S.pkg===k?'on':''}" data-pkg="${k}">${v.pop?'<span class="pop">Polecany</span>':''}<b>${v.t}</b><div class="price">${v.p}</div><span class="muted" style="font-size:12px">+ opłaty urzędowe</span><ul>${v.d.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}</div>
+    <p class="note">Ceny przykładowe – do uzupełnienia aktualnym cennikiem.</p>
+    <div class="wiz-nav"><button class="btn btn-ghost" data-back><svg class="i"><use href="#i-back"/></svg>Wstecz</button>
+    <button class="btn btn-primary" data-next>Zleć zgłoszenie <svg class="i"><use href="#i-arrow"/></svg></button></div>
+    <p class="center" style="margin:14px 0 0;font-size:14px">Wolisz najpierw porozmawiać? <a href="#" id="laterBtn" style="color:var(--indigo);font-weight:600">Poproś o telefon od prawnika</a></p>`;
+  }
+  if(wizStep===5){
+    h=`<h2>Podpisz pełnomocnictwo</h2><p class="sub">Dzięki pełnomocnictwu nasz prawnik złoży zgłoszenie i będzie prowadził korespondencję z urzędem w Twoim imieniu.</p>
+    <div class="card" style="background:var(--soft);font-size:14px;margin-bottom:18px">
+      <b>Pełnomocnictwo</b><p class="muted" style="margin:6px 0 0">Ja, ${esc(S.person.first+' '+S.person.last)}${S.person.company?', działając w imieniu '+esc(S.person.company):''}, udzielam pełnomocnictwa do reprezentowania mnie przed ${S.region==='pl'?'Urzędem Patentowym RP':S.region==='eu'?'EUIPO':'WIPO'} w sprawie zgłoszenia znaku towarowego „${esc(S.name||'znak graficzny')}”.</p>
+    </div>
+    <div class="field"><label>Podpis</label><canvas class="sig" id="sig"></canvas><a href="#" id="sigClear" style="font-size:13px;color:var(--indigo)">Wyczyść</a></div>
+    ${nav(true,'Podpisz i zleć zgłoszenie',S.signed)}`;
+  }
+  if(wizStep===6){
+    h=`<div class="done-hero"><div class="big-ok"><svg class="i" style="width:40px;height:40px"><use href="#i-check"/></svg></div>
+    <h2>Gotowe! Zajmiemy się resztą.</h2><p class="muted" style="max-width:520px;margin:0 auto">Twoja sprawa została utworzona. Wszystkie kolejne kroki, dokumenty i wiadomości od prawnika znajdziesz w panelu klienta. Wysłaliśmy też potwierdzenie na <b>${esc(S.person.email)}</b>.</p>
+    <a class="btn btn-primary" href="#/panel" style="margin-top:24px">Przejdź do panelu klienta <svg class="i"><use href="#i-arrow"/></svg></a></div>`;
+    $('#wizBar').style.width='100%';
+  }
+  m.innerHTML=h; bindWiz();
+}
+function valid0(){return (S.type==='graficzny'?!!S.logo:S.name.trim().length>1) && (S.type!=='slowno-graficzny'||!!S.logo)}
+function valid3(){const p=S.person;return p.first.trim()&&p.last.trim()&&/^\S+@\S+\.\S+$/.test(p.email)&&S.consent}
+function refreshNext(ok){const b=$('#wizMain [data-next]');if(b)b.disabled=!ok}
+function bindWiz(){
+  const m=$('#wizMain');
+  m.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>{wizStep--;renderWiz()});
+  m.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>{
+    wizStep++; renderWiz();
+  });
+  m.querySelectorAll('[data-type]').forEach(b=>b.onclick=()=>{S.type=b.dataset.type;renderWiz()});
+  const fn=$('#fName'); if(fn) fn.oninput=()=>{S.name=fn.value;refreshNext(valid0());renderSide()};
+  const fd=$('#fDesc'); if(fd) fd.oninput=()=>S.desc=fd.value;
+  const fl=$('#fLogo'); if(fl) fl.onchange=()=>{const f=fl.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{S.logo=r.result;renderWiz()};r.readAsDataURL(f)};
+  const dr=$('#drop'); if(dr){dr.ondragover=e=>{e.preventDefault()};dr.ondrop=e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f){const r=new FileReader();r.onload=()=>{S.logo=r.result;renderWiz()};r.readAsDataURL(f)}}}
+  m.querySelectorAll('[data-cls]').forEach(c=>c.onclick=()=>{const n=+c.dataset.cls;S.classes=S.classes.includes(n)?S.classes.filter(x=>x!==n):[...S.classes.filter(x=>x!==0),n];renderWiz()});
+  const un=$('#fUnsure'); if(un) un.onchange=()=>{S.classes=un.checked?[0]:[];renderWiz()};
+  m.querySelectorAll('[data-region]').forEach(b=>b.onclick=()=>{S.region=b.dataset.region;renderWiz()});
+  m.querySelectorAll('[data-p]').forEach(i=>i.oninput=()=>{S.person[i.dataset.p]=i.value;refreshNext(valid3());renderSide()});
+  const fc=$('#fConsent'); if(fc) fc.onchange=()=>{S.consent=fc.checked;refreshNext(valid3())};
+  const fm=$('#fMkt'); if(fm) fm.onchange=()=>S.marketing=fm.checked;
+  m.querySelectorAll('[data-pkg]').forEach(p=>p.onclick=()=>{S.pkg=p.dataset.pkg;renderWiz()});
+  const lb=$('#laterBtn'); if(lb) lb.onclick=e=>{e.preventDefault();toast('Prawnik oddzwoni w ciągu 24 h');location.hash='#/panel'};
+  const cv=$('#sig'); if(cv) initSig(cv);
+}
+function runScan(){
+  const rows=[...document.querySelectorAll('#scan .scan-row')];
+  const n=S.name.toLowerCase();
+  S.risk = BLOCKED.some(b=>n.includes(b)) || n.length<4 && n.length>0 ? 'mid':'low';
+  rows.forEach((r,i)=>setTimeout(()=>{
+    const warn = S.risk==='mid' && i===3;
+    r.querySelector('.spin').outerHTML=`<span class="ok ${warn?'warn':''}">${warn?'!':'<svg class="i" style="width:13px;height:13px"><use href="#i-check"/></svg>'}</span>`;
+    if(i===rows.length-1) setTimeout(()=>{S.verified=true;renderWiz()},600);
+  },700*(i+1)));
+}
+function initSig(cv){
+  const r=cv.getBoundingClientRect(); cv.width=r.width*2; cv.height=r.height*2;
+  const c=cv.getContext('2d'); c.scale(2,2); c.lineWidth=2.2; c.lineCap='round'; c.strokeStyle='#0e1a3c';
+  let draw=false;
+  const pos=e=>{const b=cv.getBoundingClientRect();return [e.clientX-b.left,e.clientY-b.top]};
+  cv.onpointerdown=e=>{draw=true;c.beginPath();c.moveTo(...pos(e));cv.setPointerCapture(e.pointerId)};
+  cv.onpointermove=e=>{if(!draw)return;c.lineTo(...pos(e));c.stroke();if(!S.signed){S.signed=true;refreshNext(true)}};
+  cv.onpointerup=()=>draw=false;
+  $('#sigClear').onclick=e=>{e.preventDefault();c.clearRect(0,0,cv.width,cv.height);S.signed=false;refreshNext(false)};
+}
+
+/* ================= PANEL ================= */
+let tab='sprawy';
+const MSGS=[
+  {me:false,t:'Dzień dobry! Jestem Pana/Pani opiekunem sprawy. Weryfikacja znaku została zakończona – raport jest w zakładce Dokumenty.',d:'wczoraj, 14:02'},
+  {me:false,t:'Proszę o potwierdzenie listy klas – rekomenduję dodanie klasy 35 (handel), jeśli planuje Pan/Pani sprzedaż online.',d:'dziś, 09:15'}
+];
+document.querySelectorAll('.app-side [data-tab]').forEach(a=>a.onclick=()=>{tab=a.dataset.tab;renderPanel()});
+function caseData(){
+  const hasCase=!!(S.name||S.logo);
+  return {
+    name:S.name|| (S.logo?'Znak graficzny':'KAWIARNIA POD LIPĄ'),
+    no:'OL/2026/'+String(4821).padStart(5,'0'),
+    type:TYPES[S.type].t, region:REGIONS[S.region].t,
+    classes:(S.classes.filter(x=>x).length?S.classes.filter(x=>x):[30,35,43]).sort((a,b)=>a-b).join(', '),
+    pkg:PKGS[S.pkg].t, signed:hasCase?S.signed:true, paid:hasCase?S.paid:false
+  };
+}
+function renderPanel(){
+  document.querySelectorAll('.app-side [data-tab]').forEach(a=>a.classList.toggle('on',a.dataset.tab===tab));
+  const p=S.person; const nm=(p.first||p.last)?(p.first+' '+p.last).trim():'Jan Kowalski';
+  $('#meName').textContent=nm; $('#meAv').textContent=nm.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
+  const c=caseData(); const b=$('#panelBody');
+  const titles={sprawy:'Moje sprawy',wiadomosci:'Wiadomości',dokumenty:'Dokumenty',platnosci:'Płatności',ustawienia:'Moje dane'};
+  $('#panelTitle').textContent=titles[tab];
+  if(tab==='sprawy'){
+    const stage = c.paid?2:1;
+    const TL=[
+      ['Bezpłatna weryfikacja','Zakończona – raport w dokumentach'],
+      ['Przygotowanie dokumentów','Dobór klas i przygotowanie zgłoszenia'],
+      ['Zgłoszenie w urzędzie','Złożenie wniosku i nadanie numeru zgłoszenia'],
+      ['Publikacja i okres sprzeciwu','3 miesiące na ewentualne sprzeciwy'],
+      ['Decyzja urzędu','Udzielenie prawa ochronnego'],
+      ['Świadectwo ochronne','Znak chroniony przez 10 lat']
+    ];
+    b.innerHTML=`<div class="cards">
+      <div class="card">
+        <div class="case-head">
+          <div class="case-logo">${S.logo?`<img src="${S.logo}" alt="">`:esc(c.name.slice(0,2).toUpperCase())}</div>
+          <div><div class="muted" style="font-size:13px">Sprawa ${c.no}</div><h2 style="font-size:24px;margin:2px 0 6px">${esc(c.name)}</h2>
+          <span class="status st-blue"><svg class="i" style="width:14px;height:14px"><use href="#i-clock"/></svg>${TL[stage][0]}</span></div>
+        </div>
+        <div class="kv" style="margin-top:20px">
+          <div><small>Rodzaj znaku</small>${c.type}</div><div><small>Obszar ochrony</small>${c.region}</div>
+          <div><small>Klasy</small>${c.classes}</div><div><small>Pakiet</small>${c.pkg}</div>
+        </div>
+        <ul class="tl">${TL.map((t,i)=>`<li class="${i<stage?'done':i===stage?'cur':''}"><span class="b">${i<stage?'<svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg>':''}</span><b>${t[0]}</b><small>${t[1]}</small></li>`).join('')}</ul>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <h3><svg class="i" style="color:var(--amber)"><use href="#i-bell"/></svg>Do zrobienia</h3>
+          <div class="todo ${c.signed?'ok-t':''}"><span class="ic"><svg class="i"><use href="#i-pen"/></svg></span><div><b>Pełnomocnictwo</b><br><small class="muted">${c.signed?'Podpisane':'Wymaga podpisu'}</small></div>${c.signed?'<span class="status st-green" style="margin-left:auto">✓</span>':'<a class="btn btn-primary" href="#/weryfikacja">Podpisz</a>'}</div>
+          <div class="todo ${c.paid?'ok-t':''}"><span class="ic"><svg class="i"><use href="#i-card"/></svg></span><div><b>Opłata za usługę</b><br><small class="muted">${c.paid?'Opłacono':'Pakiet '+c.pkg}</small></div>${c.paid?'<span class="status st-green" style="margin-left:auto">✓</span>':'<button class="btn btn-primary" id="payBtn">Opłać</button>'}</div>
+          <div class="todo"><span class="ic"><svg class="i"><use href="#i-chat"/></svg></span><div><b>Potwierdź klasy</b><br><small class="muted">Pytanie od prawnika</small></div><button class="btn btn-ghost" data-go="wiadomosci">Odpowiedz</button></div>
+        </div>
+        <div class="card">
+          <div class="lawyer"><div class="av">MC</div><div><b>mec. M. C.</b><br><span class="muted" style="font-size:13px">Twój opiekun sprawy</span></div></div>
+          <p class="muted" style="font-size:14px">Masz pytanie? Napisz – odpowiadamy w ciągu 24 h w dni robocze.</p>
+          <button class="btn btn-ghost btn-block" data-go="wiadomosci">Napisz wiadomość</button>
+        </div>
+      </div>
+    </div>`;
+    const pb=$('#payBtn'); if(pb) pb.onclick=()=>{S.paid=true;toast('Płatność przyjęta (demo)');renderPanel()};
+  }
+  if(tab==='wiadomosci'){
+    b.innerHTML=`<div class="card" style="max-width:820px">
+      <div class="lawyer" style="padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px"><div class="av">MC</div><div><b>mec. M. C.</b><br><span class="muted" style="font-size:13px">Sprawa ${c.no} · ${esc(c.name)}</span></div></div>
+      <div class="msgs" id="msgs">${MSGS.map(x=>`<div class="m ${x.me?'me':'them'}">${esc(x.t)}<small>${x.d}</small></div>`).join('')}</div>
+      <form class="composer" id="comp"><input id="compIn" placeholder="Napisz wiadomość do prawnika…" autocomplete="off"><button class="btn btn-primary" style="padding:10px 18px">Wyślij</button></form>
+    </div>`;
+    $('#msgBadge').classList.add('hide');
+    const ms=$('#msgs'); ms.scrollTop=ms.scrollHeight;
+    $('#comp').onsubmit=e=>{e.preventDefault();const v=$('#compIn').value.trim();if(!v)return;MSGS.push({me:true,t:v,d:'teraz'});renderPanel();
+      setTimeout(()=>{MSGS.push({me:false,t:'Dziękuję za wiadomość – odpowiem najszybciej, jak to możliwe.',d:'teraz'});if(tab==='wiadomosci')renderPanel()},1200)};
+  }
+  if(tab==='dokumenty'){
+    const docs=[['Raport z weryfikacji znaku.pdf','wczoraj'],['Pełnomocnictwo.pdf',c.signed?'podpisane':'oczekuje na podpis'],['Umowa o świadczenie usług.pdf','dziś'],['Potwierdzenie zgłoszenia (UPRP).pdf','po złożeniu wniosku']];
+    b.innerHTML=`<div class="card" style="max-width:820px"><h3><svg class="i" style="color:var(--indigo)"><use href="#i-doc"/></svg>Dokumenty sprawy ${c.no}</h3>
+      ${docs.map(([n,s],i)=>`<div class="doc"><span class="ic"><svg class="i"><use href="#i-doc"/></svg></span><div><b>${n}</b><br><small class="muted">${s}</small></div>${i<3?'<a href="#" onclick="toast(\'Pobieranie (demo)\');return false">Pobierz</a>':'<span class="muted" style="margin-left:auto;font-size:13px">wkrótce</span>'}</div>`).join('')}
+      <label class="drop" style="margin-top:16px"><svg class="i"><use href="#i-upload"/></svg> Dodaj plik dla prawnika<input type="file" hidden onchange="toast('Plik przesłany (demo)')"></label></div>`;
+  }
+  if(tab==='platnosci'){
+    b.innerHTML=`<div class="card" style="max-width:820px"><h3><svg class="i" style="color:var(--indigo)"><use href="#i-card"/></svg>Płatności</h3>
+      <table class="table"><thead><tr><th>Pozycja</th><th>Kwota</th><th>Status</th></tr></thead><tbody>
+      <tr><td>Pakiet ${c.pkg}</td><td>${PKGS[S.pkg].p.replace('od ','')}</td><td>${c.paid?'<span class="status st-green">Opłacone</span>':'<span class="status st-amber">Do zapłaty</span>'}</td></tr>
+      <tr><td>Opłata urzędowa – zgłoszenie</td><td>wg cennika urzędu</td><td><span class="status st-blue">Po złożeniu</span></td></tr>
+      <tr><td>Opłata za okres ochrony</td><td>wg cennika urzędu</td><td><span class="status st-blue">Po decyzji</span></td></tr>
+      </tbody></table></div>`;
+  }
+  if(tab==='ustawienia'){
+    b.innerHTML=`<div class="card" style="max-width:640px"><h3><svg class="i" style="color:var(--indigo)"><use href="#i-user"/></svg>Moje dane</h3>
+      <div class="grid2"><div class="field"><label>Imię</label><input value="${esc(p.first||'Jan')}"></div><div class="field"><label>Nazwisko</label><input value="${esc(p.last||'Kowalski')}"></div></div>
+      <div class="grid2"><div class="field"><label>E-mail</label><input value="${esc(p.email||'jan@firma.pl')}"></div><div class="field"><label>Telefon</label><input value="${esc(p.phone)}"></div></div>
+      <div class="grid2"><div class="field"><label>Firma</label><input value="${esc(p.company)}"></div><div class="field"><label>NIP</label><input value="${esc(p.nip)}"></div></div>
+      <label class="check"><input type="checkbox" checked>Powiadomienia e-mail o zmianie statusu sprawy</label>
+      <label class="check"><input type="checkbox" checked>Powiadomienia SMS</label>
+      <button class="btn btn-primary" onclick="toast('Zapisano (demo)')">Zapisz zmiany</button></div>`;
+  }
+  b.querySelectorAll('[data-go]').forEach(x=>x.onclick=()=>{tab=x.dataset.go;renderPanel()});
+}
+
+route();
+</script>
+</body>
+</html>
