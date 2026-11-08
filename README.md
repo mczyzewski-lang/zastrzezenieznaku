@@ -8,6 +8,7 @@ Układ i lejek sprzedażowy wzorowane na AirHelp: pytanie w hero → kreator kro
 - `index.html` – strona główna (hero z pytaniem „Co chcesz zastrzec?”, opinie, 4 kroki + kalkulator opłat, liczby, baner „Jedna opłata. Zero ryzyka.”, korzyści, klienci, FAQ, CTA, pakiet korzyści, newsletter/poradnik, stopka, czat)
 - `index.html#weryfikacja` – kreator: znak → klasy → obszar → dane → wynik weryfikacji + wybór pakietu → pełnomocnictwo (podpis) → gotowe
 - `index.html#panel` – panel klienta: status sprawy (oś czasu), zadania do zrobienia, wiadomości z prawnikiem, dokumenty, płatności, dane
+- `index.html#wycena` – gra „Ile warta jest Twoja marka?”: 10 pytań w stylu teleturnieju, drabinka kwot, wycena metodą relief from royalty (funkcja `brandValue`), finał z wynikiem i zyskiem z zastrzeżenia znaku
 
 ## Do uzupełnienia przed wdrożeniem
 - Wynik weryfikacji jest **symulowany** (`runScan`, lista `BLOCKED`) – podpiąć API/proces prawnika.
